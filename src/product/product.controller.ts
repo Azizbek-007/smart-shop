@@ -20,9 +20,8 @@ export class ProductController {
     }
 
     @Get()
-    product (@Query() query): Promise<void> {
-        
-        return this.productService.GetAll(query);
+    async product (@Query() query: object) {
+        return await this.productService.GetAll(query);
     }
 
     @Get('/ingredient')

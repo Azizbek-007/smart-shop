@@ -25,8 +25,8 @@ let ProductController = class ProductController {
     }
     async update() {
     }
-    product(query) {
-        return this.productService.GetAll(query);
+    async product(query) {
+        return await this.productService.GetAll(query);
     }
     async product_copy() {
     }

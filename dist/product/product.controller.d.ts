@@ -6,7 +6,7 @@ export declare class ProductController {
     constructor(productService: ProductService);
     create(dto: ProductCreateDto): Promise<void>;
     update(): Promise<void>;
-    product(query: any): Promise<void>;
+    product(query: object): Promise<void>;
     product_copy(): Promise<void>;
     qrcode_read(query: object, response: Response): Promise<Response<any, Record<string, any>>>;
     product_export(): Promise<void>;

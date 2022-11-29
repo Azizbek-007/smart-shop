@@ -1,6 +1,7 @@
-import { BaseEntity, Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { UserEnum } from "./usertype.enum";
 
+@Entity()
 export class users extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: bigint;
@@ -8,23 +9,23 @@ export class users extends BaseEntity {
     @Column()
     full_name: string;
     
-    @Column()
+    @Column({ unique: true})
     phone: string;
     
     @Column()
     type: UserEnum;
     
     @Column()
-    tin: number;
+    tin: string;                                                                        
     
-    @Column()
+    @Column({nullable: true, default: 0})
     balance: number;
     
     @Column()
     about: string;
 
     @CreateDateColumn()
-    created_at: Date;
+    registered_at: Date;
     
     @UpdateDateColumn()
     updated_at: Date;

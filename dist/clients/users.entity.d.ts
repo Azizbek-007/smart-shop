@@ -5,10 +5,10 @@ export declare class users extends BaseEntity {
     full_name: string;
     phone: string;
     type: UserEnum;
-    tin: number;
+    tin: string;
     balance: number;
     about: string;
-    created_at: Date;
+    registered_at: Date;
     updated_at: Date;
     deleted_at: Date;
 }

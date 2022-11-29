@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.users = void 0;
 const typeorm_1 = require("typeorm");
 const usertype_enum_1 = require("./usertype.enum");
-class users extends typeorm_1.BaseEntity {
-}
+let users = class users extends typeorm_1.BaseEntity {
+};
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", typeof BigInt === "function" ? BigInt : Object)
@@ -23,7 +23,7 @@ __decorate([
     __metadata("design:type", String)
 ], users.prototype, "full_name", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ unique: true }),
     __metadata("design:type", String)
 ], users.prototype, "phone", void 0);
 __decorate([
@@ -32,10 +32,10 @@ __decorate([
 ], users.prototype, "type", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], users.prototype, "tin", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true, default: 0 }),
     __metadata("design:type", Number)
 ], users.prototype, "balance", void 0);
 __decorate([
@@ -45,7 +45,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
-], users.prototype, "created_at", void 0);
+], users.prototype, "registered_at", void 0);
 __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
@@ -54,5 +54,8 @@ __decorate([
     (0, typeorm_1.DeleteDateColumn)(),
     __metadata("design:type", Date)
 ], users.prototype, "deleted_at", void 0);
+users = __decorate([
+    (0, typeorm_1.Entity)()
+], users);
 exports.users = users;
 //# sourceMappingURL=users.entity.js.map
